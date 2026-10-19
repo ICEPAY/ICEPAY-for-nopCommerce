@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "PayPal",
+  "SystemName": "Payments.ICEPAY.PayPal",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 4,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.PayPal.dll",
+  "Description": "Pay with PayPal through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

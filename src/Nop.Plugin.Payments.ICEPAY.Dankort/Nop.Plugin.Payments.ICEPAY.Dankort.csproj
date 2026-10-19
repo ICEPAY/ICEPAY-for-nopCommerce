@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Nop.Plugin.Payments.ICEPAY/Nop.Plugin.Payments.ICEPAY.csproj" />
+    <Content Include="logo.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="plugin.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

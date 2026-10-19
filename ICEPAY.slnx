@@ -1,0 +1,13 @@
+<Solution>
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY/Nop.Plugin.Payments.ICEPAY.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.Ideal/Nop.Plugin.Payments.ICEPAY.Ideal.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.Card/Nop.Plugin.Payments.ICEPAY.Card.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.Bancontact/Nop.Plugin.Payments.ICEPAY.Bancontact.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.PayPal/Nop.Plugin.Payments.ICEPAY.PayPal.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.OnlineUberweisen/Nop.Plugin.Payments.ICEPAY.OnlineUberweisen.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.Eps/Nop.Plugin.Payments.ICEPAY.Eps.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.CarteBancaire/Nop.Plugin.Payments.ICEPAY.CarteBancaire.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.Dankort/Nop.Plugin.Payments.ICEPAY.Dankort.csproj" />
+  <Project Path="src/Nop.Plugin.Payments.ICEPAY.PayByBank/Nop.Plugin.Payments.ICEPAY.PayByBank.csproj" />
+  <Project Path="tests/ICEPAY.Tests/ICEPAY.Tests.csproj" />
+</Solution>

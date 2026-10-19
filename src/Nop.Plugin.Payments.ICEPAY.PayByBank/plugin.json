@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Pay by Bank",
+  "SystemName": "Payments.ICEPAY.PayByBank",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 9,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.PayByBank.dll",
+  "Description": "Pay with Pay by Bank through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Card",
+  "SystemName": "Payments.ICEPAY.Card",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 2,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.Card.dll",
+  "Description": "Pay with Card through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

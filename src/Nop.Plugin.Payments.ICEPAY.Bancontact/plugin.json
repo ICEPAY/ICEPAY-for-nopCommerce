@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Bancontact",
+  "SystemName": "Payments.ICEPAY.Bancontact",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 3,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.Bancontact.dll",
+  "Description": "Pay with Bancontact through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

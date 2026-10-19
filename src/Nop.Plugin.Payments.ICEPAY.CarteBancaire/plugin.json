@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Carte Bancaire",
+  "SystemName": "Payments.ICEPAY.CarteBancaire",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 7,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.CarteBancaire.dll",
+  "Description": "Pay with Carte Bancaire through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

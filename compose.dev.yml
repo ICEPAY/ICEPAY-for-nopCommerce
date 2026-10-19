@@ -1,0 +1,34 @@
+name: icepay-nop-dev
+services:
+  mariadb:
+    image: mariadb:11.4
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    ports:
+      - "127.0.0.1:33069:3306"
+    environment:
+      MARIADB_DATABASE: icepay_dev
+      MARIADB_USER: icepay
+      MARIADB_PASSWORD: icepay-local-only
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 30s
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin:5.2-apache
+    ports:
+      - "127.0.0.1:8081:80"
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: "3306"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+volumes:
+  mariadb_data:

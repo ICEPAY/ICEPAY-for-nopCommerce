@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Dankort",
+  "SystemName": "Payments.ICEPAY.Dankort",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 8,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.Dankort.dll",
+  "Description": "Pay with Dankort through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

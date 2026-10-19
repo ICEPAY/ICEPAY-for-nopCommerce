@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "Online Überweisen",
+  "SystemName": "Payments.ICEPAY.OnlineUberweisen",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 5,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.OnlineUberweisen.dll",
+  "Description": "Pay with Online Überweisen through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

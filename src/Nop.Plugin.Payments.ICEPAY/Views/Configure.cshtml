@@ -1,0 +1,42 @@
+@model ConfigurationModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+@await Component.InvokeAsync("StoreScopeConfiguration")
+<form asp-controller="ICEPAYConfiguration" asp-action="Configure" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="card card-default">
+        <div class="card-body">
+            <p>@T("Plugins.Payments.ICEPAY.Setup")</p>
+            @if (Model.ActiveStoreScopeConfiguration > 0)
+            {
+                <div class="form-group row">
+                    <div class="col-md-3"><nop-label asp-for="OverrideForStore" /></div>
+                    <div class="col-md-9"><nop-editor asp-for="OverrideForStore" /></div>
+                </div>
+            }
+            <div class="form-group row">
+                <div class="col-md-3"><nop-label asp-for="MerchantId" /></div>
+                <div class="col-md-9"><nop-editor asp-for="MerchantId" /></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3"><nop-label asp-for="Secret" /></div>
+                <div class="col-md-9">
+                    <input asp-for="Secret" type="password" value="" autocomplete="new-password" class="form-control" />
+                    <small>@T("Plugins.Payments.ICEPAY.SecretHint")</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <nop-override-store-checkbox asp-for="ReferenceTemplate_OverrideForStore" asp-input="ReferenceTemplate" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                    <nop-label asp-for="ReferenceTemplate" />
+                </div>
+                <div class="col-md-9">
+                    <nop-editor asp-for="ReferenceTemplate" />
+                    <small>@T("Plugins.Payments.ICEPAY.ReferenceTemplate.Hint")</small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">@T("Admin.Common.Save")</button>
+        </div>
+    </div>
+</form>

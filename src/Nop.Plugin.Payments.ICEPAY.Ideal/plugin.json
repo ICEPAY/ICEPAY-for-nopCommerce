@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "iDEAL | Wero",
+  "SystemName": "Payments.ICEPAY.Ideal",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.Ideal.dll",
+  "Description": "Pay with iDEAL | Wero through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

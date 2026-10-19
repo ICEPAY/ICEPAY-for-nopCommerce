@@ -1,0 +1,16 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "EPS",
+  "SystemName": "Payments.ICEPAY.Eps",
+  "Version": "1.0.0",
+  "SupportedVersions": [
+    "5.00"
+  ],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 6,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.Eps.dll",
+  "Description": "Pay with EPS through ICEPAY.",
+  "DependsOnSystemNames": [
+    "Payments.ICEPAY.Core"
+  ]
+}

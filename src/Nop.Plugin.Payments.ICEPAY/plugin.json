@@ -1,0 +1,11 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "ICEPAY — shared configuration",
+  "SystemName": "Payments.ICEPAY.Core",
+  "Version": "1.0.0",
+  "SupportedVersions": ["5.00"],
+  "Author": "ICEPAY for nopCommerce contributors",
+  "DisplayOrder": 0,
+  "FileName": "Nop.Plugin.Payments.ICEPAY.dll",
+  "Description": "Shared settings and payment processing for the ICEPAY payment methods."
+}
