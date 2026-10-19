@@ -3,6 +3,7 @@ using ICEPAY.Checkout;
 using Moq;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Payments;
+using Nop.Plugin.Payments.ICEPAY;
 using NUnit.Framework;
 
 namespace ICEPAY.Tests;
@@ -54,7 +55,7 @@ public class CheckoutDataTests
             Assert.That(address.GetProperty("streetName").GetString(), Is.EqualTo("Damrak 1, Unit 2"));
             Assert.That(address.TryGetProperty("houseNumber", out _), Is.False, "Address line 2 is not a house number.");
             Assert.That(integration.GetProperty("type").GetString(), Is.EqualTo("nopcommerce"));
-            Assert.That(integration.GetProperty("version").GetString(), Is.EqualTo("1.0.0"));
+            Assert.That(integration.GetProperty("version").GetString(), Is.EqualTo(typeof(ICEPAYCorePlugin).Assembly.GetName().Version!.ToString(3)));
             Assert.That(integration.GetProperty("developer").GetString(), Is.EqualTo("ICEPAY"));
         });
     }

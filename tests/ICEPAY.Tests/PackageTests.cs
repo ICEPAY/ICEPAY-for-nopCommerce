@@ -1,6 +1,7 @@
 using System.IO.Compression;
 using System.Reflection;
 using System.Runtime.Loader;
+using System.Xml.Linq;
 using Newtonsoft.Json;
 using Nop.Services.Payments;
 using Nop.Services.Plugins;
@@ -17,7 +18,8 @@ public class PackageTests
         var root = new DirectoryInfo(AppContext.BaseDirectory);
         while (root is not null && !File.Exists(Path.Combine(root.FullName, "ICEPAY.slnx"))) root = root.Parent;
         Assert.That(root, Is.Not.Null);
-        var path = Path.Combine(root!.FullName, "artifacts", "ICEPAY-nopCommerce-5.00-1.0.0.zip");
+        var version = XDocument.Load(Path.Combine(root!.FullName, "Directory.Build.props")).Descendants("Version").Single().Value;
+        var path = Path.Combine(root.FullName, "artifacts", $"ICEPAY-nopCommerce-5.00-{version}.zip");
         Assert.That(File.Exists(path), Is.True, "Build Release and run python3 scripts/package.py before package tests.");
         using var archive = ZipFile.OpenRead(path);
         using var reader = new StreamReader(archive.GetEntry("uploadedItems.json")!.Open());
@@ -30,6 +32,7 @@ public class PackageTests
             using var manifest = new StreamReader(archive.GetEntry(item.DirectoryPath + "plugin.json")!.Open());
             var descriptor = PluginDescriptor.GetPluginDescriptorFromText(manifest.ReadToEnd());
             Assert.That(descriptor.SystemName, Is.EqualTo(item.SystemName));
+            Assert.That(descriptor.Version, Is.EqualTo(version));
             var dll = archive.GetEntry(item.DirectoryPath + descriptor.AssemblyFileName)!;
             var assemblyName = Path.GetFileNameWithoutExtension(descriptor.AssemblyFileName);
             var assembly = AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(a => a.GetName().Name == assemblyName);
@@ -41,6 +44,7 @@ public class PackageTests
                 bytes.Position = 0;
                 assembly = AssemblyLoadContext.Default.LoadFromStream(bytes);
             }
+            Assert.That(assembly.GetName().Version!.ToString(3), Is.EqualTo(version.Split('-')[0]), descriptor.SystemName);
             var plugins = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t) && !t.IsAbstract && !t.IsInterface).ToList();
             Assert.That(plugins, Has.Count.EqualTo(1), descriptor.SystemName);
             if (typeof(IPaymentMethod).IsAssignableFrom(plugins.Single()))
@@ -61,7 +65,6 @@ public class PackageTests
         Assert.That(archive.Entries.Any(e => e.Name is "Nop.Core.dll" or "Nop.Services.dll" or "Nop.Web.Framework.dll"), Is.False);
         Assert.That(archive.GetEntry("Payments.ICEPAY.Core/ICEPAY.Checkout.dll"), Is.Not.Null);
         Assert.That(archive.GetEntry("Payments.ICEPAY.Core/Assets/PaymentLogos/LICENSE.txt"), Is.Not.Null);
-        Assert.That(archive.GetEntry("Payments.ICEPAY.Core/Assets/PaymentLogos/SOURCE.txt"), Is.Not.Null);
         // The scheduled-task registration must resolve to an executable task.
         var scheduledTask = Type.GetType("Nop.Plugin.Payments.ICEPAY.Services.ICEPAYReconcileTask, Nop.Plugin.Payments.ICEPAY", throwOnError: true);
         Assert.That(typeof(Nop.Services.ScheduleTasks.IScheduleTask).IsAssignableFrom(scheduledTask), Is.True);

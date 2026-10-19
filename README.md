@@ -80,3 +80,19 @@ See ICEPAY's [Terms & Conditions](https://icepay.com/terms-and-conditions/) and
 
 The plugin code and ICEPAY .NET SDK are MIT licensed. The distribution
 includes the original artwork, license text, and third-party notices.
+
+## Creating a GitHub release
+
+1. Commit and push the release workflow and plugin changes before creating the tag.
+2. Keep the version in `Directory.Build.props` and all `src/*/plugin.json` files in sync.
+3. On GitHub, open **Releases → Create a new release**, create a matching tag such as
+   `v1.0.0`, and select the commit or branch containing those changes.
+4. Add the release notes and click **Publish release**. Published prereleases also trigger
+   the workflow; saving a draft does not.
+5. Follow **Build, test and package** under **Actions**. Once the build and tests pass,
+   `ICEPAY-nopCommerce-5.00-<version>.zip` appears under the release's **Assets**.
+
+The workflow uses GitHub's built-in token; no extra repository secret is required.
+If a run fails, inspect its log and rerun the failed jobs after resolving the cause.
+If the fix changes source files, release a new tag containing that fix. Existing
+assets with the same filename are not overwritten.
